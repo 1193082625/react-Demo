@@ -1,0 +1,48 @@
+@value colors: './color.css';
+@value blue, red, green, gray from colors;
+body{
+    background-color: #ccc;
+    color: #666;
+}
+:global(.bgBox){
+    background: #fff;
+}
+.displo{
+    display: block;
+}
+h1{
+    color: #333;
+}
+h2{
+    color: #666;
+}
+
+:local(.c333){
+    color: #333;
+    composes: displo; // 让.c333继承.displo ， 只能在:local 中使用
+}
+:global(.c666){
+    color: red;
+}
+:global(.imgStyle){
+    display: block;
+    max-width: 100%;
+}
+
+.nav{
+    display: table;
+    float: left;
+    width: 100%;
+}
+.nav a{
+    display: block;
+    text-decoration: none;
+    float: left;
+    margin: 10px;
+    color: #666;
+}
+.active{
+    font-weight: bold;
+     /*继承another.css里面的colorFF6329*/
+    composes: colorFF6329 from './another.css';
+}
